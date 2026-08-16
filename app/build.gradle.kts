@@ -8,7 +8,7 @@ android {
     compileSdk = 35
     defaultConfig { applicationId = "com.hireme.app"; minSdk = 26; targetSdk = 35; versionCode = 1; versionName = "1.0.0" }
     buildFeatures { compose = true }
-    buildTypes { release { isMinifyEnabled = false; proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro") } }
+    buildTypes { release { signingConfig = signingConfigs.getByName("debug"); isMinifyEnabled = false; proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro") } }
     compileOptions { sourceCompatibility = JavaVersion.VERSION_17; targetCompatibility = JavaVersion.VERSION_17 }
     kotlinOptions { jvmTarget = "17" }
     packaging { resources { excludes += "/META-INF/{AL2.0,LGPL2.1}" } }
