@@ -76,6 +76,7 @@ private fun ReviewCard() { GlassCard { Column(Modifier.padding(16.dp), verticalA
 @Composable
 private fun SettingsCard() { GlassCard { Column { listOf(Icons.Outlined.Edit to "Edit profile", Icons.Outlined.NotificationsNone to "Notifications", Icons.Outlined.Lock to "Security & privacy", Icons.Outlined.HelpOutline to "Help & support").forEach { (icon, label) -> Row(Modifier.fillMaxWidth().clickable { }.padding(horizontal = 16.dp, vertical = 14.dp), verticalAlignment = Alignment.CenterVertically) { Icon(icon, null, tint = Muted, modifier = Modifier.size(20.dp)); Spacer(Modifier.width(13.dp)); Text(label, Modifier.weight(1f), fontSize = 13.sp); Icon(Icons.Outlined.ChevronRight, null, tint = Faint, modifier = Modifier.size(17.dp)) } } } }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RequestSheet(onClose: () -> Unit) {
     var stage by remember { mutableStateOf(0) }
@@ -104,4 +105,3 @@ private fun AnalysisContent(onClose: () -> Unit) { Column(Modifier.fillMaxWidth(
 @Composable private fun ProfileStat(value: String, label: String) { Column(horizontalAlignment = Alignment.CenterHorizontally) { Text(value, color = Sky, fontWeight = FontWeight.Bold, fontSize = 19.sp); Text(label, color = Muted, fontSize = 10.sp) } }
 @Composable private fun ProjectPreview() { GlassCard { Column(Modifier.padding(17.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) { Row(verticalAlignment = Alignment.CenterVertically) { Box(Modifier.size(42.dp).clip(RoundedCornerShape(13.dp)).background(Sky.copy(alpha = .12f)), contentAlignment = Alignment.Center) { Icon(Icons.Outlined.Language, null, tint = Sky) }; Spacer(Modifier.width(12.dp)); Column(Modifier.weight(1f)) { Text("E-Commerce Website", fontWeight = FontWeight.Bold); Text("Web Development", color = Muted, fontSize = 11.sp) }; Text("82%", color = Sky, fontWeight = FontWeight.Bold) }; ProgressLine(82); Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) { Text("Development in progress", color = Muted, fontSize = 11.sp); Text("Deadline Aug 22", color = Faint, fontSize = 11.sp) } } } }
 @Composable private fun MetricCard(value: String, label: String, modifier: Modifier) { GlassCard(modifier) { Column(Modifier.padding(vertical = 14.dp), horizontalAlignment = Alignment.CenterHorizontally) { Text(value, color = Sky, fontSize = 20.sp, fontWeight = FontWeight.Bold); Text(label, color = Muted, fontSize = 10.sp) } } }
-EOF
