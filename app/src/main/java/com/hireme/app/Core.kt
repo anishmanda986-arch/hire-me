@@ -57,7 +57,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) { super.onCreate(savedInstanceState); window.statusBarColor = android.graphics.Color.rgb(7, 27, 58); window.navigationBarColor = android.graphics.Color.rgb(7, 27, 58); setContent { HireMeTheme { HireMeApp() } } }
 }
 
-@Composable fun HireMeTheme(content: @Composable () -> Unit) { MaterialTheme(colorScheme = darkColorScheme(primary = Sky, onPrimary = DeepBlue, secondary = Sky, onSecondary = DeepBlue, background = DeepBlue, onBackground = White, surface = DeepBlue2, onSurface = White, surfaceVariant = DeepBlue3, onSurfaceVariant = Muted, outline = Border), typography = Typography(defaultFontFamily = androidx.compose.ui.text.font.FontFamily.SansSerif), content = content) }
+@Composable fun HireMeTheme(content: @Composable () -> Unit) { MaterialTheme(colorScheme = darkColorScheme(primary = Sky, onPrimary = DeepBlue, secondary = Sky, onSecondary = DeepBlue, background = DeepBlue, onBackground = White, surface = DeepBlue2, onSurface = White, surfaceVariant = DeepBlue3, onSurfaceVariant = Muted, outline = Border), typography = Typography(), content = content) }
 
 @Composable fun HireMeApp() {
     val context = LocalContext.current; var splash by remember { mutableStateOf(true) }; var onboarding by remember { mutableStateOf(!context.getSharedPreferences("hire_me", Context.MODE_PRIVATE).getBoolean("onboarded", false)) }; var tab by remember { mutableStateOf(Tab.HOME) }; var request by remember { mutableStateOf(false) }
